@@ -152,3 +152,36 @@ webpack 5.4.0 compiled successfully in 1851 ms
 ## 12 step
 
 **Open index.html from the dist directory in your browser and, if everything went right, you should see the following text: 'Hello webpack'.**
+
+
+## 13 step
+
+**Given it's not particularly fun to run a local copy of webpack from the CLI, we can set up a little shortcut. Let's adjust our package.json by adding an npm script:**
+
+`{
+   "name": "webpack-demo",
+   "version": "1.0.0",
+   "description": "",
+   "private": true,
+   "scripts": {
+-    "test": "echo \"Error: no test specified\" && exit 1"
++    "test": "echo \"Error: no test specified\" && exit 1",
++    "build": "webpack"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+     "webpack": "^5.4.0",
+     "webpack-cli": "^4.2.0"
+   },
+   "dependencies": {
+     "lodash": "^4.17.20"
+   }
+ }`
+
+## 14 step
+
+**Now the npm run build command can be used in place of the npx command we used earlier. Note that within scripts we can reference locally installed npm packages by name the same way we did with npx. This convention is the standard in most npm-based projects because it allows all contributors to use the same set of common scripts. Now run the following command and see if your script alias works:**
+
+`$ npm run build`
