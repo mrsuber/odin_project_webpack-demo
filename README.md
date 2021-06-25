@@ -1,19 +1,25 @@
 # monitor the changes made in this Project
 ## 01 step
+
 **First let's create a directory, initialize npm, install webpack locally, and install the webpack-cli**
+
 `mkdir webpack-demo
 cd webpack-demo
 npm init -y
 npm install webpack webpack-cli --save-dev`
 ---
 ##02 step
+
 **Throughout the Guides we will use diff blocks to show you what changes we're making to directories, files, and code. For instance:**
+
 `+ this is a new line you shall copy into your code
 - and this is a line to be removed from your code
   and this is a line not to touch.`
 ---
 ##03 step
+
 **Now we'll create the following directory structure, files and their contents:**
+
 `webpack-demo
 |- package.json
 + |- index.html
@@ -21,7 +27,9 @@ npm install webpack webpack-cli --save-dev`
 +   |- index.js`
 ---
 ##04 step
+
 **src/index.js**
+
 `function component() {
   const element = document.createElement('div');
 
@@ -34,7 +42,9 @@ npm install webpack webpack-cli --save-dev`
 document.body.appendChild(component());`
 ---
 ##05 step
+
 **index.html**
+
 `<!DOCTYPE html>
 <html>
   <head>
@@ -49,7 +59,9 @@ document.body.appendChild(component());`
 
 ---
 ##06 step
+
 **We also need to adjust our package.json file in order to make sure we mark our package as private, as well as removing the main entry. This is to prevent an accidental publish of your code.**
+
 `{
    "name": "webpack-demo",
    "version": "1.0.0",
@@ -69,6 +81,7 @@ document.body.appendChild(component());`
  }`
 ---
 ##07 step
+
 **First we'll tweak our directory structure slightly, separating the "source" code (./src) from our "distribution" code (./dist). The "source" code is the code that we'll write and edit. The "distribution" code is the minimized and optimized output of our build process that will eventually be loaded in the browser. Tweak the directory structure as follows:**
 
 `webpack-demo
@@ -80,13 +93,16 @@ document.body.appendChild(component());`
   |- index.js`
 ---
 ##08 step
+
 **To bundle the lodash dependency with index.js, we'll need to install the library locally:**
 
 `npm install --save lodash`
 
 ---
 ##09 step
+
 **Now, let's import lodash in our script: src/index.js**
+
 `+import _ from 'lodash';
 +
  function component() {
@@ -103,7 +119,9 @@ document.body.appendChild(component());`
 
 ---
 #10 step
+
 **Now, since we'll be bundling our scripts, we have to update our index.html file. Let's remove the lodash <script>, as we now import it, and modify the other <script> tag to load the bundle, instead of the raw ./src file: dist/index.html**
+
 ` <!DOCTYPE html>
  <html>
    <head>
@@ -118,7 +136,9 @@ document.body.appendChild(component());`
  </html>`
 ---
 #11 step
+
 **let's run npx webpack, which will take our script at src/index.js as the entry point, and will generate dist/main.js as the output. The npx command, which ships with Node 8.2/npm 5.2.0 or higher, runs the webpack binary (./node_modules/.bin/webpack) of the webpack package we installed in the beginning:**
+
 `$ npx webpack
 [webpack-cli] Compilation finished
 asset main.js 69.3 KiB [emitted] [minimized] (name: main) 1 related asset
@@ -130,4 +150,5 @@ webpack 5.4.0 compiled successfully in 1851 ms
 `
 ---
 #12 step
+
 **Open index.html from the dist directory in your browser and, if everything went right, you should see the following text: 'Hello webpack'.**
