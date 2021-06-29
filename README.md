@@ -1,5 +1,5 @@
-# monitor the changes made in this Project
-## 01 step
+# Building landing page with webpack.
+## 01 step "this step1 to step14 help you configure webpack"
 
 **First let's create a directory, initialize npm, install webpack locally, and install the webpack-cli**
 
@@ -180,8 +180,10 @@ webpack 5.4.0 compiled successfully in 1851 ms
    }
  }`
 
-## 14 step
+## 14 step "end of configuration. if you have not understood, you could always vist the webpack documentation site."
 
 **Now the npm run build command can be used in place of the npx command we used earlier. Note that within scripts we can reference locally installed npm packages by name the same way we did with npx. This convention is the standard in most npm-based projects because it allows all contributors to use the same set of common scripts. Now run the following command and see if your script alias works:**
 
 `$ npm run build`
+
+# Starting our landing page
